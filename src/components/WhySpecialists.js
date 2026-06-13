@@ -32,29 +32,29 @@ const WhySpecialists = () => {
           <div className="underline"></div>
           <div className="doctors-grid">
             <div className="doctor-card">
-              <div className="ultrasound-img-frame">
-                <img src="/doctor_and_pregnant_ultrasound.png" alt="Dr. Hana Tesfaye" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+              <div className="doctor-avatar f">
+                <img src="/doctor.png" alt="Dr. Hana Tesfaye" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
               </div>
               <div className="doctor-name">Dr. Hana Tesfaye</div>
               <div className="doctor-spec">Obstetrician &amp; Gynecologist</div>
             </div>
             <div className="doctor-card">
-              <div className="ultrasound-img-frame">
-                <img src="/doctor_and_pregnant_ultrasound.png" alt="Dr. Samuel Bekele" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+              <div className="doctor-avatar m">
+                <img src="/doctor.png" alt="Dr. Samuel Bekele" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
               </div>
               <div className="doctor-name">Dr. Samuel Bekele</div>
               <div className="doctor-spec">Pediatric Specialist</div>
             </div>
             <div className="doctor-card">
-              <div className="ultrasound-img-frame">
-                <img src="/doctor_and_pregnant_ultrasound.png" alt="Dr. Meron Desta" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+              <div className="doctor-avatar f">
+                <img src="/doctor.png" alt="Dr. Meron Desta" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
               </div>
               <div className="doctor-name">Dr. Meron Desta</div>
               <div className="doctor-spec">Neonatal Care Specialist</div>
             </div>
             <div className="doctor-card">
-              <div className="ultrasound-img-frame">
-                <img src="/doctor_and_pregnant_ultrasound.png" alt="Dr. Elias Alemu" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
+              <div className="doctor-avatar m">
+                <img src="/doctor.png" alt="Dr. Elias Alemu" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} />
               </div>
               <div className="doctor-name">Dr. Elias Alemu</div>
               <div className="doctor-spec">Maternal-Fetal Medicine Specialist</div>

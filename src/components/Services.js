@@ -15,7 +15,9 @@ const Services = () => {
         </div>
         <div className="services-grid">
           <div className="service-card">
-            <div className="service-icon teal">🤰</div>
+            <div className="service-icon teal">
+              <img src="/maternal_care.jpg" alt="Maternal Care" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <h3 className="teal">Maternal Care</h3>
             <ul>
               <li>Antenatal Care (ANC)</li>
@@ -37,7 +39,9 @@ const Services = () => {
             <a href="#" className="btn-learn pink" onClick={handleClick}>Learn More</a>
           </div>
           <div className="service-card">
-            <div className="service-icon teal">👶</div>
+            <div className="service-icon teal">
+              <img src="/newborn_care.jpg" alt="Newborn Care" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
             <h3 className="teal">Newborn Care</h3>
             <ul>
               <li>Neonatal Intensive Care</li>

@@ -166,35 +166,63 @@
   .services-grid {
     display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
   }
-  .service-card {
-    background: white; border-radius: 14px; padding: 24px 18px;
-    border: 1px solid var(--gray-200); transition: box-shadow 0.2s, transform 0.2s;
-    display: flex; flex-direction: column;
+  .service-card { 
+    background: white; border-radius: 12px; padding: 24px; 
+    border: 1px solid var(--gray-200); transition: box-shadow 0.2s;
   }
-  .service-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-4px); }
-  .service-icon {
-    width: 58px; height: 58px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 14px;
+  .service-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+  .service-icon { 
+    width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
   }
   .service-icon.teal { background: var(--teal-light); }
   .service-icon.pink { background: var(--pink-light); }
-  .service-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
-  .service-card h3.pink { color: var(--pink); }
-  .service-card h3.teal { color: var(--teal); }
-  .service-card ul { list-style: none; flex: 1; margin-bottom: 16px; }
-  .service-card ul li {
-    font-size: 0.78rem; color: var(--gray-600); padding: 3px 0;
-    display: flex; align-items: flex-start; gap: 6px;
+  .service-card h3 { 
+    font-size: 1.1rem; font-weight: 700; margin: 0 0 12px; 
+    display: flex; align-items: center; gap: 8px;
   }
-  .service-card ul li::before { content: '•'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
-  .btn-learn {
-    display: inline-block; padding: 8px 18px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;
-    text-align: center; transition: all 0.2s; cursor: pointer; border: none;
+  .teal { color: var(--teal); }
+  .pink { color: var(--pink); }
+  .service-card ul { 
+    list-style: none; margin: 0 0 16px; padding-left: 0;
   }
-  .btn-learn.teal { background: var(--teal); color: white; }
-  .btn-learn.pink { background: var(--pink); color: white; }
-  .btn-learn:hover { opacity: 0.88; transform: translateY(-1px); }
-
+  .service-card li { 
+    font-size: 0.85rem; color: var(--gray-600); padding: 4px 0;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .service-card li::before { 
+    content: '•'; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .btn-learn { display: inline-block; padding: 8px 16px; border-radius: 6px; 
+    font-size: 0.8rem; font-weight: 600; transition: all 0.2s; text-decoration: none; }
+  .btn-learn.teal { border: 1.5px solid var(--teal); color: var(--teal); }
+  .btn-learn.pink { border: 1.5px solid var(--pink); color: var(--pink); }
+  .btn-learn.teal:hover { background: var(--teal); color: white; }
+  .btn-learn.pink:hover { background: var(--pink); color: white; }
+  
+  /* Maternal care card specific styles */
+  .maternal-care .service-icon-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .maternal-care .service-icon {
+    margin: 0;
+    flex-shrink: 0;
+  }
+  
+  .maternal-care .service-text {
+    flex: 1;
+  }
+  
+  .maternal-care .service-text ul {
+    margin: 8px 0 16px;
+  }
+  
+  .maternal-care .service-text li::before {
+    color: var(--teal);
+  }
   /* ANATOMICAL ULTRASOUND */
   .anatomical-ultrasound { background: var(--gray-50); }
   .ultrasound-content {
@@ -220,8 +248,8 @@
     object-fit: cover;
   }
   .doctor-card .ultrasound-img-frame {
-    width: 56px; 
-    height: 56px; 
+    width: 80px; 
+    height: 90px; 
     transform: rotate(0); 
     border-radius: 50%;
     border: 4px solid var(--white);
@@ -236,8 +264,8 @@
     background: linear-gradient(135deg, #dbeafe, #ede9fe); 
   }
   .doctor-avatar.ultrasound-img-frame {
-    width: 56px; 
-    height: 56px; 
+    width: 70px; 
+    height: 110px; 
     transform: rotate(0); 
     border-radius: 50%;
     border: 4px solid var(--white);
@@ -263,37 +291,145 @@
   }
 
   /* PREGNANCY JOURNEY */
-  .journey { background: white; }
+  .journey {
+    background: white;
+    padding: 60px 24px;
+  }
+  
+  .jw {
+    width: 1200px;
+    max-width: 100%;
+    background: #fff8fa;
+    border-radius: 8px;
+    position: relative;
+    padding: 18px 50px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #3a3a3a;
+    margin-bottom: 18px;
+  }
+
+  .arrow-btn {
+    position: absolute;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    background: #333;
+    color: #fff;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrow-left  { left: 0;  border-radius: 0 0 8px 0; }
+  .arrow-right { right: 0; border-radius: 0 0 0 8px; }
+
+  .steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .step {
+    width: 170px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .image-wrap {
+    position: relative;
+    min-width: 68px;
+  }
+
+  .img-oval {
+    width: 68px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ic1 { border: 3px solid #a0ead8; background: #e8faf5; }
+  .ic2 { border: 3px solid #f4b8d8; background: #fde9f3; }
+  .ic3 { border: 3px solid #a0ead8; background: #e8faf5; }
+  .ic4 { border: 3px solid #f4b8d8; background: #fde9f3; }
+  .ic5 { border: 3px solid #a0ead8; background: #e8faf5; }
+
+  .number {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .n1, .n3, .n5 { background: #00b7c4; }
+  .n2, .n4      { background: #ff4b82; }
+
+  .step-content { padding-top: 4px; }
+
+  .step-content h4 {
+    font-size: 13px;
+    margin-bottom: 6px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .step-content p {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .h1, .h3, .h5 { color: #00aeb5; }
+  .h2, .h4      { color: #ff4b82;  }
+
+  .arr {
+    font-size: 26px;
+    color: #aaa;
+    flex-shrink: 0;
+    margin: 0 2px;
+    padding-top: 30px;
+  }
+
+  /* Responsive adjustments for journey steps */
+  @media (max-width: 1100px) {
+    .steps { 
+      flex-wrap: wrap; 
+      gap: 30px; 
+    }
+    .arr {
+      display: none;
+    }
+    .step {
+      width: calc(50% - 20px);
+      justify-content: center;
+    }
+  }
+
+  /* Remove old journey styles */
   .journey-steps {
-    display: flex; align-items: flex-start; justify-content: center; gap: 0;
-    flex-wrap: nowrap; overflow-x: auto;
-  }
-  .journey-step { display: flex; align-items: flex-start; }
-  .step-content {
-    text-align: center; padding: 0 12px; max-width: 170px;
-  }
-  .step-circle {
-    width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; position: relative;
-  }
-  .step-circle .step-num {
-    position: absolute; top: -4px; left: -4px;
-    width: 22px; height: 22px; border-radius: 50%;
-    font-size: 0.7rem; font-weight: 700; color: white;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .step-circle.s1 { background: #e6f4ff; } .step-circle.s1 .step-num { background: #3b82f6; }
-  .step-circle.s2 { background: var(--pink-light); } .step-circle.s2 .step-num { background: var(--pink); }
-  .step-circle.s3 { background: #fef3c7; } .step-circle.s3 .step-num { background: #d97706; }
-  .step-circle.s4 { background: var(--teal-light); } .step-circle.s4 .step-num { background: var(--teal); }
-  .step-circle.s5 { background: #ede9fe; } .step-circle.s5 .step-num { background: #7c3aed; }
-  .step-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
-  .step-title.pink { color: var(--pink); }
-  .step-title.teal { color: var(--teal); }
-  .step-desc { font-size: 0.75rem; color: var(--gray-600); line-height: 1.5; }
-  .step-arrow {
-    font-size: 1.2rem; color: var(--gray-400); margin-top: 30px; padding: 0 4px; flex-shrink: 0;
+    display: none;
   }
 
   /* WHY CHOOSE + SPECIALISTS */
@@ -328,7 +464,7 @@
   }
   .doctor-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
   .doctor-avatar {
-    width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 8px;
+    width: 80px; height: 90px; border-radius: 50%; margin: 0 auto 8px;
     display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
     overflow: hidden;
   }
