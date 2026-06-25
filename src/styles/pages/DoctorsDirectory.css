@@ -1,0 +1,124 @@
+/* DOCTORS DIRECTORY PAGE STYLES */
+.doctors-directory-page {
+  background: #fff;
+}
+
+.doctors-header {
+  background: linear-gradient(135deg, #f0faf9 0%, #fde8ef 100%);
+  padding: 80px 24px 60px;
+  text-align: center;
+}
+
+.doctors-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.doctors-header p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 40px 24px;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.doctor-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+
+.doctor-card:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.doctor-image {
+  height: 200px;
+  background: linear-gradient(135deg, #b2e8e3, #fde8ef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.doctor-info {
+  padding: 20px;
+}
+
+.doctor-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.doctor-specialty {
+  color: #1a9d8f;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.doctor-bio {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.btn-contact {
+  display: inline-block;
+  background: #1a9d8f;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-contact:hover {
+  background: #157a6e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .doctors-header h1 {
+    font-size: 2rem;
+  }
+  
+  .doctors-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .doctors-header {
+    padding: 60px 16px 40px;
+  }
+  
+  .doctors-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .doctors-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/pages/DoctorsDirectory.css';
 
 const DoctorsDirectory = () => {
   const [selectedDoctor, setSelectedDoctor] = useState(null);
@@ -92,122 +93,160 @@ const DoctorsDirectory = () => {
 
   return (
     <main className="doctors-directory-page">
-      
-      <main className="doctors-directory-page">
-        <section className="doctors-hero">
-          <div className="container">
-            <h1>Meet Our Medical Experts</h1>
-            <p>Experienced specialists dedicated to your health and wellbeing</p>
-          </div>
-        </section>
+      <section className="doctors-header">
+        <div className="container">
+          <h1>Meet Our Medical Experts</h1>
+          <p>Experienced specialists dedicated to your health and wellbeing</p>
+        </div>
+      </section>
 
-        <section className="doctors-filter">
-          <div className="container">
-            <h2>Find a Specialist</h2>
-            <div className="filter-options">
-              <button 
-                className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
-                onClick={() => setFilter('all')}
-              >
-                All Specialists
-              </button>
-              <button 
-                className={`filter-btn ${filter === 'obstetrician' ? 'active' : ''}`}
-                onClick={() => setFilter('obstetrician')}
-              >
-                Obstetricians
-              </button>
-              <button 
-                className={`filter-btn ${filter === 'pediatric' ? 'active' : ''}`}
-                onClick={() => setFilter('pediatric')}
-              >
-                Pediatricians
-              </button>
-              <button 
-                className={`filter-btn ${filter === 'neonatal' ? 'active' : ''}`}
-                onClick={() => setFilter('neonatal')}
-              >
-                Neonatal Care
-              </button>
-              <button 
-                className={`filter-btn ${filter === 'cardio' ? 'active' : ''}`}
-                onClick={() => setFilter('cardio')}
-              >
-                Cardiologists
-              </button>
-            </div>
+      <section className="doctors-grid">
+        <div className="doctor-card">
+          <div className="doctor-image">👩‍⚕️</div>
+          <div className="doctor-info">
+            <h3 className="doctor-name">Dr. Sarah Chen</h3>
+            <div className="doctor-specialty">Obstetrics & Gynecology</div>
+            <p className="doctor-bio">Board-certified OB/GYN with 12 years of experience in high-risk pregnancies and minimally invasive surgery.</p>
+            <a href="/contact" className="btn-contact">Contact</a>
           </div>
-        </section>
+        </div>
 
-        <section className="doctors-grid-section">
-          <div className="container">
-            <div className="doctors-grid">
-              {filteredDoctors.map((doctor) => (
-                <div 
-                  key={doctor.id} 
-                  className="doctor-card"
-                  onClick={() => handleDoctorClick(doctor)}
-                >
-                  <div className={`doctor-avatar ${doctor.gender === 'female' ? 'f' : 'm'}`}>
-                    <img src={doctor.image} alt={doctor.name} />
-                  </div>
-                  <div className="doctor-info">
-                    <h3 className="doctor-name">{doctor.name}</h3>
-                    <p className="doctor-specialty">{doctor.specialty}</p>
-                    <p className="doctor-experience">{doctor.experience} experience</p>
-                    <div className="doctor-languages">
-                      {doctor.languages.map((lang, index) => (
-                        <span key={index} className="language-tag">{lang}</span>
-                      ))}
-                    </div>
-                  </div>
+        <div className="doctor-card">
+          <div className="doctor-image">👨‍⚕️</div>
+          <div className="doctor-info">
+            <h3 className="doctor-name">Dr. Michael Rodriguez</h3>
+            <div className="doctor-specialty">Pediatrics</div>
+            <p className="doctor-bio">Specializes in childhood nutrition and developmental disorders. Known for his gentle approach with young patients.</p>
+            <a href="/contact" className="btn-contact">Contact</a>
+          </div>
+        </div>
+
+        <div className="doctor-card">
+          <div className="doctor-image">👩‍⚕️</div>
+          <div className="doctor-info">
+            <h3 className="doctor-name">Dr. Amina Johnson</h3>
+            <div className="doctor-specialty">Family Medicine</div>
+            <p className="doctor-bio">Provides comprehensive care for all ages with focus on preventive medicine and chronic disease management.</p>
+            <a href="/contact" className="btn-contact">Contact</a>
+          </div>
+        </div>
+
+        <div className="doctor-card">
+          <div className="doctor-image">👨‍⚕️</div>
+          <div className="doctor-info">
+            <h3 className="doctor-name">Dr. David Kim</h3>
+            <div className="doctor-specialty">Maternal-Fetal Medicine</div>
+            <p className="doctor-bio">Expert in complex pregnancies with advanced training from Johns Hopkins Hospital. Fluent in Korean and English.</p>
+            <a href="/contact" className="btn-contact">Contact</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="doctors-filter">
+        <div className="container">
+          <h2>Find a Specialist</h2>
+          <div className="filter-options">
+            <button 
+              className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+              onClick={() => setFilter('all')}
+            >
+              All Specialists
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'obstetrician' ? 'active' : ''}`}
+              onClick={() => setFilter('obstetrician')}
+            >
+              Obstetricians
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'pediatric' ? 'active' : ''}`}
+              onClick={() => setFilter('pediatric')}
+            >
+              Pediatricians
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'neonatal' ? 'active' : ''}`}
+              onClick={() => setFilter('neonatal')}
+            >
+              Neonatal Care
+            </button>
+            <button 
+              className={`filter-btn ${filter === 'cardio' ? 'active' : ''}`}
+              onClick={() => setFilter('cardio')}
+            >
+              Cardiologists
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="doctors-grid-section">
+        <div className="container">
+          <div className="doctors-grid">
+            {filteredDoctors.map((doctor) => (
+              <div 
+                key={doctor.id} 
+                className="doctor-card"
+                onClick={() => handleDoctorClick(doctor)}
+              >
+                <div className={`doctor-avatar ${doctor.gender === 'female' ? 'f' : 'm'}`}>
+                  <img src={doctor.image} alt={doctor.name} />
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {selectedDoctor && (
-          <div className="doctor-modal-overlay" onClick={handleCloseModal}>
-            <div className="doctor-modal" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={handleCloseModal}>×</button>
-              <div className="doctor-modal-content">
-                <div className="doctor-modal-header">
-                  <div className={`doctor-avatar-large ${selectedDoctor.gender === 'female' ? 'f' : 'm'}`}>
-                    <img src={selectedDoctor.image} alt={selectedDoctor.name} />
-                  </div>
-                  <div className="doctor-modal-text">
-                    <h2>{selectedDoctor.name}</h2>
-                    <h3>{selectedDoctor.specialty}</h3>
-                    <p className="doctor-experience">{selectedDoctor.experience} experience</p>
-                  </div>
-                </div>
-                
-                <div className="doctor-details">
-                  <h4>About Dr. {selectedDoctor.name.split(' ')[1]}</h4>
-                  <p>{selectedDoctor.bio}</p>
-                  
-                  <h4>Education</h4>
-                  <p>{selectedDoctor.education}</p>
-                  
-                  <h4>Languages Spoken</h4>
+                <div className="doctor-info">
+                  <h3 className="doctor-name">{doctor.name}</h3>
+                  <p className="doctor-specialty">{doctor.specialty}</p>
+                  <p className="doctor-experience">{doctor.experience} experience</p>
                   <div className="doctor-languages">
-                    {selectedDoctor.languages.map((lang, index) => (
+                    {doctor.languages.map((lang, index) => (
                       <span key={index} className="language-tag">{lang}</span>
                     ))}
                   </div>
-                  
-                  <div className="doctor-actions">
-                    <a href="#" className="btn-service" onClick={handleClick}>Book Appointment</a>
-                    <a href="#" className="btn-service-outline" onClick={handleClick}>View Schedule</a>
-                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {selectedDoctor && (
+        <div className="doctor-modal-overlay" onClick={handleCloseModal}>
+          <div className="doctor-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={handleCloseModal}>×</button>
+            <div className="doctor-modal-content">
+              <div className="doctor-modal-header">
+                <div className={`doctor-avatar-large ${selectedDoctor.gender === 'female' ? 'f' : 'm'}`}>
+                  <img src={selectedDoctor.image} alt={selectedDoctor.name} />
+                </div>
+                <div className="doctor-modal-text">
+                  <h2>{selectedDoctor.name}</h2>
+                  <h3>{selectedDoctor.specialty}</h3>
+                  <p className="doctor-experience">{selectedDoctor.experience} experience</p>
+                </div>
+              </div>
+              
+              <div className="doctor-details">
+                <h4>About Dr. {selectedDoctor.name.split(' ')[1]}</h4>
+                <p>{selectedDoctor.bio}</p>
+                
+                <h4>Education</h4>
+                <p>{selectedDoctor.education}</p>
+                
+                <h4>Languages Spoken</h4>
+                <div className="doctor-languages">
+                  {selectedDoctor.languages.map((lang, index) => (
+                    <span key={index} className="language-tag">{lang}</span>
+                  ))}
+                </div>
+                
+                <div className="doctor-actions">
+                  <a href="#" className="btn-service" onClick={handleClick}>Book Appointment</a>
+                  <a href="#" className="btn-service-outline" onClick={handleClick}>View Schedule</a>
                 </div>
               </div>
             </div>
           </div>
-        )}
-      </main>
-
+        </div>
+      )}
     </main>
   );
 };

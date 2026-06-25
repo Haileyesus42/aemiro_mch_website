@@ -1,0 +1,143 @@
+/* SERVICES OVERVIEW PAGE STYLES */
+.services-overview-page {
+  background: #fff;
+}
+
+.services-header {
+  background: linear-gradient(135deg, #f0faf9 0%, #fde8ef 100%);
+  padding: 80px 24px 60px;
+  text-align: center;
+}
+
+.services-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.services-header p {
+  font-size: 1.1rem;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-categories {
+  padding: 40px 24px;
+  background: #f9fafb;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.category-tabs button {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1f2937;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-tabs button:hover,
+.category-tabs button.active {
+  background: #1a9d8f;
+  color: white;
+  border-color: #1a9d8f;
+}
+
+.services-list {
+  padding: 60px 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+
+.service-card:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+.service-card p {
+  color: #4b5563;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.btn-learn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-learn.teal {
+  background: #1a9d8f;
+  color: white;
+  border: 1px solid #1a9d8f;
+}
+
+.btn-learn.teal:hover {
+  background: #157a6e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .services-header h1 {
+    font-size: 2rem;
+  }
+  
+  .category-tabs {
+    gap: 8px;
+  }
+  
+  .category-tabs button {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-header {
+    padding: 60px 16px 40px;
+  }
+  
+  .services-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

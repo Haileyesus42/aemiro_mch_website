@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/pages/Contact.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,203 +8,158 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const validate = () => {
+    let tempErrors = {};
+    if (!formData.name) tempErrors.name = 'Name is required';
+    if (!formData.email) {
+      tempErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      tempErrors.email = 'Please enter a valid email address';
+    }
+    if (!formData.subject) tempErrors.subject = 'Subject is required';
+    if (!formData.message) tempErrors.message = 'Message is required';
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    // Handle click functionality here if needed
+    if (validate()) {
+      setIsSubmitting(true);
+      // Simulate API call
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitSuccess(true);
+        // Reset form after success
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        // Reset success message after 5 seconds
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      }, 1000);
+    }
   };
 
   return (
-    <div className="page-container">
-      <main className="contact-page">
-        <section className="contact-hero">
-          <div className="container">
-            <h1>Contact Us</h1>
-            <p>We're here to assist you with any questions or concerns</p>
-          </div>
-        </section>
+    <main className="contact-page">
+      <section className="contact-header">
+        // ... existing header ...
+      </section>
 
-        <section className="contact-info">
-          <div className="container">
-            <div className="contact-grid">
-              <div className="contact-card">
-                <div className="contact-icon">📍</div>
-                <h3>Hospital Location</h3>
-                <p>Bole Road, Aimero<br />Addis Ababa, Ethiopia</p>
-                <a href="#" className="contact-link" onClick={handleClick}>Get Directions</a>
-              </div>
-
-              <div className="contact-card">
-                <div className="contact-icon">📞</div>
-                <h3>Emergency Care</h3>
-                <p>+251 911 123 456</p>
-                <p className="contact-subtext">Available 24/7</p>
-              </div>
-
-              <div className="contact-card">
-                <div className="contact-icon">✉️</div>
-                <h3>General Inquiry</h3>
-                <p>info@aimerohospital.com</p>
-                <a href="mailto:info@aimerohospital.com" className="contact-link" onClick={handleClick}>Send Email</a>
-              </div>
-
-              <div className="contact-card">
-                <div className="contact-icon">🕒</div>
-                <h3>Working Hours</h3>
-                <p>Monday - Friday: 8:00 AM - 8:00 PM</p>
-                <p>Saturday: 8:00 AM - 4:00 PM</p>
-                <p>Sunday: Emergency Only</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="contact-map">
-          <div className="container">
-            <h2>Find Us</h2>
-            <div className="map-container">
-              <div className="hospital-img">
-                <img src="/building.jpg" alt="Aimero Hospital Building" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }} />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="contact-form-section">
-          <div className="container">
-            <div className="contact-content">
+      <section className="contact-section">
+        <div className="container">
+          <div className="contact-grid">
+            <div className="contact-info">
+              <h2>Contact Information</h2>
               <div className="contact-details">
-                <h2>Get in Touch</h2>
-                <p>Have questions about our services? Need to book an appointment? Reach out to us and our friendly team will assist you.</p>
-                
-                <div className="contact-methods">
-                  <div className="contact-method">
-                    <div className="method-icon">💬</div>
-                    <div>
-                      <h4>Live Chat</h4>
-                      <p>Chat with our support team during business hours</p>
-                    </div>
+                <div className="contact-item">
+                  <div className="contact-icon">📍</div>
+                  <div className="contact-text">
+                    <h3>Our Location</h3>
+                    <p>123 Medical Center Drive<br />New York, NY 10001</p>
                   </div>
-                  
-                  <div className="contact-method">
-                    <div className="method-icon">📱</div>
-                    <div>
-                      <h4>WhatsApp</h4>
-                      <p>Message us at +251 911 123 456</p>
-                    </div>
+                </div>
+                <div className="contact-item">
+                  <div className="contact-icon">📞</div>
+                  <div className="contact-text">
+                    <h3>Phone Number</h3>
+                    <p>(212) 555-0123<br />Toll-free: (800) 555-0199</p>
                   </div>
-                  
-                  <div className="contact-method">
-                    <div className="method-icon">📋</div>
-                    <div>
-                      <h4>Online Form</h4>
-                      <p>Fill out the form and we'll get back to you</p>
-                    </div>
+                </div>
+                <div className="contact-item">
+                  <div className="contact-icon">📧</div>
+                  <div className="contact-text">
+                    <h3>Email Address</h3>
+                    <p>info@aemirohealthcare.com<br />appointments@aemirohealthcare.com</p>
                   </div>
                 </div>
               </div>
-              
-              <form onSubmit={handleSubmit} className="contact-form">
-                <h3>Send us a Message</h3>
-                
+            </div>
+            <div className="contact-form">
+              <h2>Send Us a Message</h2>
+              {submitSuccess && (
+                <div className="alert alert-success" style={{ backgroundColor: '#d4edda', color: '#155724', padding: '12px', borderRadius: '4px', marginBottom: '20px' }}>
+                  Thank you for your message! We'll get back to you shortly.
+                </div>
+              )}
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="Your Name" 
+                  <label htmlFor="name">Name *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="form-control"
                     value={formData.name}
                     onChange={handleChange}
-                    required 
+                    placeholder="Your full name"
                   />
+                  {errors.name && <span className="error-message" style={{ color: '#dc3545', fontSize: '0.85rem', marginTop: '4px', display: 'block' }}>{errors.name}</span>}
                 </div>
                 
                 <div className="form-group">
-                  <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="Your Email" 
+                  <label htmlFor="email">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="form-control"
                     value={formData.email}
                     onChange={handleChange}
-                    required 
+                    placeholder="your.email@example.com"
                   />
+                  {errors.email && <span className="error-message" style={{ color: '#dc3545', fontSize: '0.85rem', marginTop: '4px', display: 'block' }}>{errors.email}</span>}
                 </div>
                 
                 <div className="form-group">
-                  <input 
-                    type="text" 
-                    name="subject" 
-                    placeholder="Subject" 
+                  <label htmlFor="subject">Subject *</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    className="form-control"
                     value={formData.subject}
                     onChange={handleChange}
-                    required 
+                    placeholder="What is this regarding?"
                   />
+                  {errors.subject && <span className="error-message" style={{ color: '#dc3545', fontSize: '0.85rem', marginTop: '4px', display: 'block' }}>{errors.subject}</span>}
                 </div>
                 
                 <div className="form-group">
-                  <textarea 
-                    name="message" 
-                    placeholder="Your Message" 
-                    rows="5" 
+                  <label htmlFor="message">Message *</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    className="form-control"
+                    rows="5"
                     value={formData.message}
                     onChange={handleChange}
-                    required
+                    placeholder="How can we help you today?"
                   ></textarea>
+                  {errors.message && <span className="error-message" style={{ color: '#dc3545', fontSize: '0.85rem', marginTop: '4px', display: 'block' }}>{errors.message}</span>}
                 </div>
                 
-                <button type="submit" className="btn-service">Send Message</button>
+                <button type="submit" className="btn-submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
               </form>
             </div>
           </div>
-        </section>
-
-        <section className="emergency-info">
-          <div className="container">
-            <div className="emergency-card">
-              <h2>Emergency Information</h2>
-              <div className="emergency-grid">
-                <div className="emergency-item">
-                  <div className="emergency-icon">🚨</div>
-                  <div>
-                    <h3>Emergency Number</h3>
-                    <p>Call +251 911 123 456 immediately</p>
-                  </div>
-                </div>
-                
-                <div className="emergency-item">
-                  <div className="emergency-icon">🏥</div>
-                  <div>
-                    <h3>Emergency Department</h3>
-                    <p>Located on the ground floor, clearly marked</p>
-                  </div>
-                </div>
-                
-                <div className="emergency-item">
-                  <div className="emergency-icon">🚗</div>
-                  <div>
-                    <h3>Directions</h3>
-                    <p>From Bole Road, turn right at the traffic light</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-    </div>
+        </div>
+      </section>
+    </main>
   );
 };
 

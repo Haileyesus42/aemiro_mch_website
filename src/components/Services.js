@@ -1,4 +1,4 @@
-import React from 'react';
+import '../servicesoverview.css';
 
 const Services = () => {
   const handleClick = (e) => {
@@ -14,7 +14,7 @@ const Services = () => {
           <div className="underline"></div>
         </div>
         <div className="services-grid">
-          <div className="service-card">
+          <div className="service-card maternal-care">
             <div className="service-icon teal">
               <img src="/maternal_care.jpg" alt="Maternal Care" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>

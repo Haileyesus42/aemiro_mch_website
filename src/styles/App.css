@@ -180,64 +180,6 @@
   }
   .container { max-width: 1200px; margin: 0 auto; }
 
-  /* SERVICES */
-  .services { background: var(--gray-50); }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
-  }
-  .service-card {
-    background: white; border-radius: 14px; padding: 24px 18px;
-    border: 1px solid var(--gray-200); transition: box-shadow 0.2s, transform 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .service-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-4px); }
-  .service-icon {
-    width: 58px; height: 58px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 14px;
-  }
-  .service-icon.teal { background: var(--teal-light); }
-  .service-icon.pink { background: var(--pink-light); }
-  .service-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
-  .service-card h3.pink { color: var(--pink); }
-  .service-card h3.teal { color: var(--teal); }
-  .service-card ul { list-style: none; flex: 1; margin-bottom: 16px; }
-  .service-card ul li {
-    font-size: 0.78rem; color: var(--gray-600); padding: 3px 0;
-    display: flex; align-items: flex-start; gap: 6px;
-  }
-  .service-card ul li::before { content: '•'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
-  .btn-learn {
-    display: inline-block; padding: 8px 18px; border-radius: 6px; font-size: 0.78rem; font-weight: 600;
-    text-align: center; transition: all 0.2s; cursor: pointer; border: none;
-  }
-  .btn-learn.teal { background: var(--teal); color: white; }
-  .btn-learn.pink { background: var(--pink); color: white; }
-  .btn-learn:hover { opacity: 0.88; transform: translateY(-1px); }
-
-  /* Maternal care card specific styles */
-  .maternal-care .service-icon-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-  
-  .maternal-care .service-icon {
-    margin: 0;
-    flex-shrink: 0;
-  }
-  
-  .maternal-care .service-text {
-    flex: 1;
-  }
-  
-  .maternal-care .service-text ul {
-    margin: 8px 0 16px;
-  }
-  
-  .maternal-care .service-text li::before {
-    color: var(--teal);
-  }
-  
   /* ANATOMICAL ULTRASOUND */
   .anatomical-ultrasound { background: var(--gray-50); }
   .ultrasound-content {
@@ -472,55 +414,27 @@
   }
   .specialists-panel h2 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 8px; text-align: center; }
   .specialists-panel .underline { width: 40px; height: 3px; background: var(--pink); border-radius: 2px; margin: 0 auto 24px; }
-  .doctors-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px; }
+  .doctors-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
   .doctor-card {
-    background: white; border-radius: 12px; padding: 18px;
+    background: white; border-radius: 12px; padding: 14px;
     text-align: center; border: 1px solid var(--gray-200); transition: box-shadow 0.2s;
   }
   .doctor-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
   .doctor-avatar {
-    width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 10px;
-    display: flex; align-items: center; justify-content: center; font-size: 2rem;
+    width: 80px; height: 90px; border-radius: 50%; margin: 0 auto 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    overflow: hidden;
   }
   .doctor-avatar.f { background: linear-gradient(135deg, #b2e8e3, #fde8ef); }
   .doctor-avatar.m { background: linear-gradient(135deg, #dbeafe, #ede9fe); }
-  .doctor-name { font-size: 0.82rem; font-weight: 700; margin-bottom: 3px; }
-  .doctor-spec { font-size: 0.72rem; color: var(--gray-600); }
+  .doctor-name { font-size: 0.78rem; font-weight: 700; margin-bottom: 2px; }
+  .doctor-spec { font-size: 0.68rem; color: var(--gray-600); }
   .btn-view-all {
     display: block; text-align: center; background: var(--pink); color: white;
     padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 0.85rem;
     width: fit-content; margin: 0 auto; transition: background 0.2s;
   }
   .btn-view-all:hover { background: var(--pink-dark); }
-
-  /* INFO GRID */
-  .info-grid-section { background: white; padding: 60px 24px; }
-  .info-grid {
-    max-width: 1200px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 0;
-  }
-  .info-panel { padding: 28px 24px; border-right: 1px solid var(--gray-200); }
-  .info-panel:last-child { border-right: none; }
-  .info-panel h3 { 
-    font-size: 1rem; font-weight: 700; margin-bottom: 14px; 
-    display: flex; align-items: center; gap: 8px; 
-  }
-  .quote-icon { 
-    font-size: 1.8rem; color: var(--teal); opacity: 0.3; 
-    float: left; margin-right: 6px; line-height: 1; 
-  }
-  .testimonial-text { 
-    font-size: 0.82rem; color: var(--gray-600); 
-    line-height: 1.6; margin-bottom: 10px; font-style: italic; 
-  }
-  .stars { 
-    color: #f59e0b; font-size: 0.85rem; 
-    margin-bottom: 4px; 
-  }
-  .author { 
-    font-size: 0.75rem; color: var(--gray-600); 
-    font-weight: 600; 
-  }
 
   /* BOTTOM INFO */
   .info-grid-section { background: white; padding: 60px 24px; }
@@ -604,6 +518,7 @@
     .journey-steps { gap: 4px; }
     .why-specialists-inner { grid-template-columns: 1fr; }
     .info-grid { grid-template-columns: 1fr 1fr; }
+    .info-panel { border-bottom: 1px solid var(--gray-200); }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     .doctors-grid { grid-template-columns: 1fr 1fr; }
     .dropdown-menu {
